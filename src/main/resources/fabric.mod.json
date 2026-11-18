@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "occtwfocomp",
+	"version": "${version}",
+	"name": "Occultism x Twilight Forest Compatibility",
+	"description": "Fixes the 'Conflicting default methods' crash caused by Occultism and Twilight Forest's bundled Porting Lib both adding supplier-based data component helpers to ItemStack.",
+	"authors": [
+		"occtwfocomp"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/occtwfocomp/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"otfc.occtwfocomp.OccultismTwilightforestCompatibilityMod"
+		],
+		"client": [
+			"otfc.occtwfocomp.client.OccultismTwilightforestCompatibilityModClient"
+		]
+	},
+	"mixins": [
+		"occtwfocomp.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*",
+		"occultism": "*",
+		"twilightforest": "*"
+	}
+}
