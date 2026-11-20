@@ -21,7 +21,7 @@ public class OccultismTwilightforestCompatibilityMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Occultism x Twilight Forest compatibility loaded (supplier-based ItemStack component helpers are now class-level methods).");
+		LOGGER.info("Occultism x Twilight Forest compatibility loaded (conflicting ItemStack default methods are now class-level methods).");
 	}
 
 	public static ResourceLocation id(String path) {

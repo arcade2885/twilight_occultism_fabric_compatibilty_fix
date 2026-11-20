@@ -5,7 +5,10 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 import org.spongepowered.asm.mixin.Mixin;
 
@@ -64,5 +67,13 @@ public abstract class ItemStackMixin {
 	public boolean isRepairable() {
 		ItemStack stack = (ItemStack) (Object) this;
 		return stack.isDamageableItem() && !OccultismCompat.isUnrepairable(stack.getItem());
+	}
+
+	/**
+	 * Both Occultism and Sophisticated Core add this default interface method. Hosting it on
+	 * ItemStack prevents the JVM from selecting between incompatible defaults.
+	 */
+	public int getEnchantmentLevel(Holder<Enchantment> enchantment) {
+		return EnchantmentHelper.getItemEnchantmentLevel(enchantment, (ItemStack) (Object) this);
 	}
 }
